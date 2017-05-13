@@ -1,8 +1,10 @@
+const path = require("path").resolve(__dirname, "dist");
+
 module.exports = {
   entry: "./index.ts",
   output: {
     filename: "bundle.js",
-    path: __dirname
+    path
   },
   module: {
     rules: [
@@ -12,9 +14,8 @@ module.exports = {
         loader: "source-map-loader"
       },
       {
-        enforce: "pre",
         test: /\.tsx?$/,
-        use: "source-map-loader"
+        use: "ts-loader"
       }
     ]
   },
